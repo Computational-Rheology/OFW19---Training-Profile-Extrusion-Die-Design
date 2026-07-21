@@ -1,0 +1,6 @@
+#!/bin/sh
+
+wclean libso fobjArea
+wclean libso tempBirdCarreau
+wclean hpc4PEFoam 
+

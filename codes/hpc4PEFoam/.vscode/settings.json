@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "mySimpleFoam.C": "cpp",
+        "createFields.H": "cpp",
+        "hpc4PEFoam.C": "cpp"
+    }
+}

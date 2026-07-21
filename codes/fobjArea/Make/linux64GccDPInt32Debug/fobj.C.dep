@@ -1,0 +1,5 @@
+$(OBJECTS_DIR)/fobj.C.dep: \
+fobj.C \
+fobj.H \
+
+#END

@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     hpc4PEFoam;
+
+startFrom       startTime; //latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         3000;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   1;
+
+purgeWrite      5;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+libs ("libusertempBirdCarreau.so");
+
+functions
+{
+    functionObj
+    {
+        type       fobjArea;
+        libs       ("libfobjAreaFunctionObject.so");            
+        nES        3; //dependent of geometry
+        nIS	       1; //dependent of geometry   
+        stepSize   10;
+        tolerance  1e-2;
+        minCounter 10;
+        //Patch Areas
+        es01 13.5e-06;
+        is01  3.0e-06;
+        es02 13.5e-06;
+        es03 15.0e-06;
+    }      
+}
+
+/*
+functions
+{
+    functionObj
+    {
+        type        fobj;
+        libs        ("libfobjFunctionObject.so");
+        nES   4;
+    }
+}
+*/
+
+// ************************************************************************* //
